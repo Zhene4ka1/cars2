@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--    <link rel="stylesheet" th:href="@{/css/global.css}">-->
+    <title>Профиль</title>
+</head>
+<body>
+<div class="profile">
+
+        <div class="profile_ob" th:object="${user}">
+
+                    <h1 class="title" th:text="${isAdmin ? 'Администратор' : 'Личные данные'}"></h1>
+                    <a th:href="${isAdmin ? '/statements/admin/all' : '/statements/create'}"
+                       th:text="${isAdmin ? '' : 'Оставить заявку'}"></a>
+
+                            <h2 th:text="*{name + ' ' + surname + ' ' + lastname}"></h2>
+                            <span th:text="*{'@' + username}"></span>
+
+                        <h2 style="text-align: right;" th:text="*{number}">+7-995-182-84-55</h2>
+                        <span style="text-align: right;" th:text="*{email}"></span>
+
+
+                    <h1 class="title" th:text="${isAdmin ? 'Заявки' : 'Ваши заявки'}"></h1>
+                    <a th:href="${isAdmin ? '/statements/' : '/statements/user'}"
+                       th:text="${isAdmin ? 'Посмотреть заявки пользователей' : 'Все заявки'}">
+                    </a>
+
+                <div class="profile_logout">
+                    <a th:href="@{/logout}">Выйти из аккаунта</a>
+                </div>
+
+    </div>
+</div>
+</body>
+</html>

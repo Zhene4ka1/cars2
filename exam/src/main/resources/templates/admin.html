@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Панель Администратора</title>
+</head>
+<body>
+<div class="admin_profile">
+
+    <h1 class="title" th:text="'Привет ' + ${user.name}"></h1>
+    <p class="title">Панель администратора</p>
+    <h2 class="title" >Все заявки</h2>
+
+            <div class="statements">
+                    <div class="statements_info" th:each="statements : ${statement}">
+
+                        <h2 th:text="'ФИО: ' + ${statements.user.surname + ' ' + statements.user.name +' ' + statements.user.lastname}"></h2>
+                        <span th:text="${statements.status.getStatus()}"></span>
+
+                        <p th:text=" '“Описание:' + ${statements.text} + '”' "></p>
+
+                        <form th:action="@{'/statements/updateStatus/' + ${statements.id}}" method="post">
+                                    <input type="hidden" name="status" value="OK">
+                                    <button type="submit">Одобрить</button>
+                        </form>
+
+                        <form th:action="@{'/statements/updateStatus/' + ${statements.id}}" method="post">
+                            <input type="hidden" name="status" value="NOOK">
+                            <button type="submit">Отказать</button>
+                        </form>
+
+                            <span class="id" th:text="${statements.getNumberCar()}"></span>
+                    </div>
+            </div>
+</div>
+</body>
+</html>

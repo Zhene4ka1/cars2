@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--    <link rel="stylesheet" th:href="@{/css/global.css}">-->
+    <title>Ваши заявки</title>
+</head>
+<body>
+<div class="userStatement">
+                <h1 class="title" th:text="'Добрый день, ' + ${user.name} + '!'"></h1>
+
+            <h2 class="title">Ваши заявки</h2>
+
+                    <div class="statements_user" th:each="statements : ${statement}">
+                        <h2 th:text="'ФИО: ' + ${statements.user.surname + ' ' + statements.user.name +' ' + statements.user.lastname}"></h2>
+                        <p th:text=" 'Описание: ' + ${statements.text} "></p>
+                        <span class="id" th:text=" 'Номер: ' + ${statements.getNumberCar()}"></span><br>
+                        <span th:text="'Статус: ' + ${statements.status.getStatus()}"></span>
+                    </div>
+</div>
+</body>
+</html>

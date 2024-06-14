@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--    <link rel="stylesheet" th:href="@{/css/global.css}">-->
+    <title>Добавление заявки</title>
+</head>
+<body>
+<div class="addStatements">
+            <h1 class="title">Создание заявки</h1>
+            <form class="createStatements" th:action="@{/statements/add}" method="POST">
+
+                <label for="numberCar">Номер автомобиля</label>
+                <input type="text" id="numberCar" name="numberCar"  placeholder="Номер"><br>
+
+                <label for="text">Описание нарушения</label>
+                <textarea id="text" name="text" placeholder="Описание"></textarea><br>
+                <button >Оставить заявку</button>
+            </form>
+
+</div>
+</body>
+</html>

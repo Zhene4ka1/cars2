@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--    <link rel="stylesheet" th:href="@{/css/global.css}">-->
+    <title>Регистрация</title>
+</head>
+<body>
+<div class="registration">
+
+            <h1 class="title">Регистрация</h1>
+            <form method="POST" class="auth__form" th:action="@{/registration/save}" th:object="${user}">
+
+                    <label for="surname">Фамилия</label>
+                    <input type="text" id="surname" th:field="*{surname}" placeholder="Введите фамилию"><br>
+
+                   <label for="name">Имя</label>
+                   <input type="text" id="name" th:field="*{name}" placeholder="Введите имя"><br>
+
+                    <label for="lastname">Отчество</label>
+                    <input type="text" id="lastname" th:field="*{lastname}" placeholder="Введите отчество"><br>
+
+                    <label for="tel">Номер телефона</label>
+                    <input type="number" id="tel" th:field="*{number}" placeholder="Введите номер телефона"><br>
+
+
+                    <label for="email">Почта</label>
+                    <input type="email" id="email" th:field="*{email}" placeholder="Введите эл. почту"><br>
+
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" th:field="*{username}" placeholder="Введите логин"><br>
+
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" th:field="*{password}" placeholder="Введите пароль"><br>
+
+
+                <button class="auth_button" type="submit">Зарегистрироваться</button>
+            </form>
+</div>
+</body>
+</html>
